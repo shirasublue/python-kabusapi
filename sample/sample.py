@@ -7,6 +7,12 @@ password = "hogehoge"
 # 初期設定・トークン取得
 api = kabusapi.Context(url, port, password)
 
+# 取得トークンの表示
+print(api.token)
+
+# トークンを指定した初期設定 パスワードが不要
+api = kabusapi.Context(url, port, token='fugafuga')
+
 
 # 注文発注 (現物買い)
 data = {
