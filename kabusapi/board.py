@@ -10,8 +10,8 @@ class EntitySpec(object):
         exchange = kwargs.get("exchange")
 
         response = requests.get(
-            self.ctx.base_url + '/kabusapi/board'
+            self.ctx._base_url + '/kabusapi/board'
                 + '/'+ str(symbol) + '@' + str(exchange),
-            headers=self.ctx.headers)
+            headers=self.ctx._headers)
 
         return json.loads(response.text)

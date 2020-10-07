@@ -11,8 +11,8 @@ class EntitySpec(object):
             {"Symbols": symbols}).encode('utf8')
 
         response = requests.put(
-            self.ctx.base_url + '/kabusapi/register',
+            self.ctx._base_url + '/kabusapi/register',
             payload,
-            headers=self.ctx.headers)
+            headers=self.ctx._headers)
 
         return json.loads(response.text)

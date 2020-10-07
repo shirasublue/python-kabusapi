@@ -11,13 +11,13 @@ class EntitySpec(object):
 
         if symbol and exchange:
             response = requests.get(
-                self.ctx.base_url + '/kabusapi/wallet/cash'
+                self.ctx._base_url + '/kabusapi/wallet/cash'
                     + '/'+ str(symbol) + '@' + str(exchange),
-                headers=self.ctx.headers)
+                headers=self.ctx._headers)
         else:
             response = requests.get(
-                self.ctx.base_url + '/kabusapi/wallet/cash',
-                headers=self.ctx.headers)
+                self.ctx._base_url + '/kabusapi/wallet/cash',
+                headers=self.ctx._headers)
 
         return json.loads(response.text)
 
@@ -27,12 +27,12 @@ class EntitySpec(object):
 
         if symbol and exchange:
             response = requests.get(
-                self.ctx.base_url + '/kabusapi/wallet/margin'
+                self.ctx._base_url + '/kabusapi/wallet/margin'
                     + '/'+ str(symbol) + '@' + str(exchange),
-                headers=self.ctx.headers)
+                headers=self.ctx._headers)
         else:
             response = requests.get(
-                self.ctx.base_url + '/kabusapi/wallet/margin',
-                headers=self.ctx.headers)
+                self.ctx._base_url + '/kabusapi/wallet/margin',
+                headers=self.ctx._headers)
 
         return json.loads(response.text)

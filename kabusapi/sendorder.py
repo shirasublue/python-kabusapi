@@ -9,8 +9,8 @@ class EntitySpec(object):
         payload = json.dumps(kwargs).encode('utf8')
 
         response = requests.post(
-            self.ctx.base_url + '/kabusapi/sendorder',
+            self.ctx._base_url + '/kabusapi/sendorder',
             payload,
-            headers=self.ctx.headers)
+            headers=self.ctx._headers)
 
         return json.loads(response.text)

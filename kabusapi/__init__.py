@@ -17,14 +17,20 @@ class Context(object):
         hostname='localhost',
         port=18080,
         password=None,
+        token=None,
     ):
-        self.hostname = hostname
-        self.port = port
-        self.base_url = "http://{}:{}".format(
+        self._hostname = hostname
+        self._port = port
+        self._base_url = "http://{}:{}".format(
             hostname, port,
         )
-        self.headers = {'Content-Type': 'application/json', }
-        self.set_token(password)
+        self._headers = {'Content-Type': 'application/json', }
+
+        self.token = token
+        if token:
+            self._set_header('X-API-KEY', token)
+        else:
+            self._set_token(password)        
 
         self.sendorder = sendorder.EntitySpec(self)
         self.cancelorder = cancelorder.EntitySpec(self)
@@ -36,20 +42,18 @@ class Context(object):
         self.register = register.EntitySpec(self)
         self.unregister = unregister.EntitySpec(self)
 
-    def set_header(self, key, value):
-        self.headers[key] = (value)
+    def _set_header(self, key, value):
+        self._headers[key] = (value)
     
-    def set_token(self, password):
-        self.password = password
-
+    def _set_token(self, password):
         payload = json.dumps(
             {'APIPassword': password,}
         ).encode('utf8')
 
         response = requests.post(
-            self.base_url + '/kabusapi/token',
+            self._base_url + '/kabusapi/token',
             data=payload,
-            headers=self.headers
+            headers=self._headers
         )
 
         try:
@@ -57,4 +61,4 @@ class Context(object):
         except:
             raise Exception(response.text)       
 
-        self.set_header('X-API-KEY', self.token,)
+        self._set_header('X-API-KEY', self.token,)

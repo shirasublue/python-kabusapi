@@ -11,15 +11,15 @@ class EntitySpec(object):
             {"Symbols": symbols}).encode('utf8')
 
         response = requests.put(
-            self.ctx.base_url + '/kabusapi/unregister',
+            self.ctx._base_url + '/kabusapi/unregister',
             payload,
-            headers=self.ctx.headers)
+            headers=self.ctx._headers)
 
         return json.loads(response.text)
 
     def all(self):
         response = requests.put(
-            self.ctx.base_url + '/kabusapi/unregister/all',
-            headers=self.ctx.headers)
+            self.ctx._base_url + '/kabusapi/unregister/all',
+            headers=self.ctx._headers)
 
         return json.loads(response.text)
