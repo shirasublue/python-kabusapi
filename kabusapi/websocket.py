@@ -11,7 +11,8 @@ class EntitySpec(object):
 
     def __call__(self, func):
         async def stream(func):
-            async with websockets.connect(self.uri) as ws:
+            async with websockets.connect(self.uri,
+                    ping_timeout=None) as ws:
                 while not ws.closed:
                     response = await ws.recv()
                     func(json.loads(response))
