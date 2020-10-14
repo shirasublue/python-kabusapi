@@ -10,6 +10,7 @@ from kabusapi import orders
 from kabusapi import positions
 from kabusapi import register
 from kabusapi import unregister
+from kabusapi import websocket
 
 class Context(object):
     def __init__(
@@ -25,12 +26,12 @@ class Context(object):
             hostname, port,
         )
         self._headers = {'Content-Type': 'application/json', }
-
+            
         self.token = token
         if token:
             self._set_header('X-API-KEY', token)
-        else:
-            self._set_token(password)        
+        elif password:
+            self._set_token(password)
 
         self.sendorder = sendorder.EntitySpec(self)
         self.cancelorder = cancelorder.EntitySpec(self)
@@ -41,6 +42,7 @@ class Context(object):
         self.positions = positions.EntitySpec(self)
         self.register = register.EntitySpec(self)
         self.unregister = unregister.EntitySpec(self)
+        self.websocket = websocket.EntitySpec(self)
 
     def _set_header(self, key, value):
         self._headers[key] = (value)
