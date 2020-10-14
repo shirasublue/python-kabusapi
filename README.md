@@ -5,10 +5,8 @@ kabuステーション®API用Pythonライブラリ
 参照：https://kabucom.github.io/kabusapi/ptal/index.html
 
 
-requests をインストールのこと。
+requests, websockets をインストールのこと。
 
 ```
-pip install requests
+pip install requests websockets
 ```
-
-Streamingは銘柄登録/解除のみで配信受けはなし。
