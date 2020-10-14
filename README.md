@@ -1,4 +1,4 @@
-# python kabusapi
+# python-kabusapi
 
 kabuステーション®API用Pythonライブラリ
 
