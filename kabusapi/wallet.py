@@ -36,3 +36,35 @@ class EntitySpec(object):
                 headers=self.ctx._headers)
 
         return json.loads(response.text)
+
+    def future(self, **kwargs):
+        symbol = kwargs.get("symbol")
+        exchange = kwargs.get("exchange")
+
+        if symbol and exchange:
+            response = requests.get(
+                self.ctx._base_url + '/kabusapi/wallet/future'
+                    + '/'+ str(symbol) + '@' + str(exchange),
+                headers=self.ctx._headers)
+        else:
+            response = requests.get(
+                self.ctx._base_url + '/kabusapi/wallet/future',
+                headers=self.ctx._headers)
+
+        return json.loads(response.text)
+
+    def option(self, **kwargs):
+        symbol = kwargs.get("symbol")
+        exchange = kwargs.get("exchange")
+
+        if symbol and exchange:
+            response = requests.get(
+                self.ctx._base_url + '/kabusapi/wallet/option'
+                    + '/'+ str(symbol) + '@' + str(exchange),
+                headers=self.ctx._headers)
+        else:
+            response = requests.get(
+                self.ctx._base_url + '/kabusapi/wallet/option',
+                headers=self.ctx._headers)
+
+        return json.loads(response.text)

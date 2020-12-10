@@ -8,6 +8,7 @@ from kabusapi import board
 from kabusapi import symbol
 from kabusapi import orders
 from kabusapi import positions
+from kabusapi import symbolname
 from kabusapi import register
 from kabusapi import unregister
 from kabusapi import websocket
@@ -40,6 +41,7 @@ class Context(object):
         self.symbol = symbol.EntitySpec(self)
         self.orders = orders.EntitySpec(self)
         self.positions = positions.EntitySpec(self)
+        self.symbolname = symbolname.EntitySpec(self)
         self.register = register.EntitySpec(self)
         self.unregister = unregister.EntitySpec(self)
         self.websocket = websocket.EntitySpec(self)
