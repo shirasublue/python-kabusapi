@@ -6,12 +6,7 @@ class EntitySpec(object):
         self.ctx = ctx
 
     def __call__(self, **kwargs):
-        payload = None
-        product = kwargs.get("product")
-        if product:
-            payload = {
-                "product": product,
-            }
+        payload = kwargs
 
         response = requests.get(
             self.ctx._base_url + '/kabusapi/positions',
