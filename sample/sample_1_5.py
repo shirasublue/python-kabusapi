@@ -104,3 +104,11 @@ data = {
 }
 response = api.symbolname.option(**data)
 print(response)
+
+
+# ランキング取得
+data = {
+    "Type": 1,
+    "ExchangeDivision": 'ALL',
+}
+response = api.ranking(**data)
