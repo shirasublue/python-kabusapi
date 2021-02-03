@@ -17,7 +17,7 @@ data = {
     "Side": 2,
     "Qty": 1,
     "ClosePositionOrder": None,
-    "FrontOrderType": 120, # 成行
+    "FrontOrderType": 120,  # 成行
     "Price": 0,
     "ExpireDay": 0,
 }
@@ -35,7 +35,7 @@ print(response)
     "Side": 2,
     "Qty": 10,
     "ClosePositionOrder": None,
-    "FrontOrderType": 120, # 成行
+    "FrontOrderType": 120,  # 成行
     "Price": 0,
     "ExpireDay": 0,
 }
@@ -52,7 +52,7 @@ print(response)
 data = {
     "symbol": 165120018,
     "exchange": 23,
-} 
+}
 response = api.wallet.option(**data)
 print(response)
 
@@ -66,23 +66,23 @@ print(response)
 data = {
     "symbol": 135126818,
     "exchange": 23,
-} 
+}
 response = api.wallet.option(**data)
 print(response)
 
 
 # 注文約定照会（取得商品選択）
 data = {
-    "product": 3, # 先物
-} 
+    "product": 3,  # 先物
+}
 response = api.orders(**data)
 print(response)
 
 
 # 残高照会（取得商品選択）
 data = {
-    "product": 4, # OP
-} 
+    "product": 4,  # OP
+}
 response = api.positions(**data)
 print(response)
 

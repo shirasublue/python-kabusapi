@@ -51,11 +51,11 @@ response = api.wallet.cash()
 data = {
     "symbol": 8306,
     "exchange": 1,
-} 
+}
 response = api.wallet.cash(**data)
 
 
-# 取引余力（信用） 
+# 取引余力（信用）
 response = api.wallet.margin()
 
 
@@ -63,7 +63,7 @@ response = api.wallet.margin()
 data = {
     "symbol": 8306,
     "exchange": 1,
-} 
+}
 response = api.wallet.margin(**data)
 
 
@@ -71,7 +71,7 @@ response = api.wallet.margin(**data)
 data = {
     "symbol": 8306,
     "exchange": 1,
-} 
+}
 response = api.board(**data)
 
 
@@ -79,7 +79,7 @@ response = api.board(**data)
 data = {
     "symbol": 8306,
     "exchange": 1,
-} 
+}
 response = api.symbol(**data)
 
 
@@ -94,20 +94,20 @@ response = api.positions()
 # 銘柄登録
 data = {
     "Symbols": [
-        { "Symbol": 8306, "Exchange": 1, },
-        { "Symbol": 9433, "Exchange": 1, },
+        {"Symbol": 8306, "Exchange": 1, },
+        {"Symbol": 9433, "Exchange": 1, },
     ]
-} 
+}
 response = api.register(**data)
 
 
-# 銘柄登録解除 
+# 銘柄登録解除
 data = {
     "Symbols": [
-        { "Symbol": 8306, "Exchange": 1, },
-        { "Symbol": 9433, "Exchange": 1, },
+        {"Symbol": 8306, "Exchange": 1, },
+        {"Symbol": 9433, "Exchange": 1, },
     ]
-} 
+}
 response = api.unregister(**data)
 
 

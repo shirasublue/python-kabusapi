@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class EntitySpec(object):
     def __init__(self, ctx):
         self.ctx = ctx
@@ -11,7 +12,7 @@ class EntitySpec(object):
 
         response = requests.get(
             self.ctx._base_url + '/kabusapi/board'
-                + '/'+ str(symbol) + '@' + str(exchange),
+            + '/' + str(symbol) + '@' + str(exchange),
             headers=self.ctx._headers)
 
         return json.loads(response.text)

@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class EntitySpec(object):
     def __init__(self, ctx):
         self.ctx = ctx

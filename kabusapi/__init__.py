@@ -14,6 +14,7 @@ from kabusapi import register
 from kabusapi import unregister
 from kabusapi import websocket
 
+
 class Context(object):
     def __init__(
         self,
@@ -28,7 +29,7 @@ class Context(object):
             hostname, port,
         )
         self._headers = {'Content-Type': 'application/json', }
-            
+
         self.token = token
         if token:
             self._set_header('X-API-KEY', token)
@@ -50,10 +51,10 @@ class Context(object):
 
     def _set_header(self, key, value):
         self._headers[key] = (value)
-    
+
     def _set_token(self, password):
         payload = json.dumps(
-            {'APIPassword': password,}
+            {'APIPassword': password, }
         ).encode('utf8')
 
         response = requests.post(
@@ -64,7 +65,7 @@ class Context(object):
 
         try:
             self.token = json.loads(response.text)['Token']
-        except:
-            raise Exception(response.text)       
+        except BaseException:
+            raise Exception(response.text)
 
         self._set_header('X-API-KEY', self.token,)

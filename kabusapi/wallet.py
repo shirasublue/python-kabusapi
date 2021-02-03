@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class EntitySpec(object):
     def __init__(self, ctx):
         self.ctx = ctx
@@ -12,7 +13,7 @@ class EntitySpec(object):
         if symbol and exchange:
             response = requests.get(
                 self.ctx._base_url + '/kabusapi/wallet/cash'
-                    + '/'+ str(symbol) + '@' + str(exchange),
+                + '/' + str(symbol) + '@' + str(exchange),
                 headers=self.ctx._headers)
         else:
             response = requests.get(
@@ -28,7 +29,7 @@ class EntitySpec(object):
         if symbol and exchange:
             response = requests.get(
                 self.ctx._base_url + '/kabusapi/wallet/margin'
-                    + '/'+ str(symbol) + '@' + str(exchange),
+                + '/' + str(symbol) + '@' + str(exchange),
                 headers=self.ctx._headers)
         else:
             response = requests.get(
@@ -44,7 +45,7 @@ class EntitySpec(object):
         if symbol and exchange:
             response = requests.get(
                 self.ctx._base_url + '/kabusapi/wallet/future'
-                    + '/'+ str(symbol) + '@' + str(exchange),
+                + '/' + str(symbol) + '@' + str(exchange),
                 headers=self.ctx._headers)
         else:
             response = requests.get(
@@ -60,7 +61,7 @@ class EntitySpec(object):
         if symbol and exchange:
             response = requests.get(
                 self.ctx._base_url + '/kabusapi/wallet/option'
-                    + '/'+ str(symbol) + '@' + str(exchange),
+                + '/' + str(symbol) + '@' + str(exchange),
                 headers=self.ctx._headers)
         else:
             response = requests.get(
